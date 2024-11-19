@@ -215,17 +215,17 @@ export default function LandingPage() {
               <div className="flex gap-96 animate-marquee w-full">
                 {/* Logos to scroll */}
                 {[
-                  "Amazon",
-                  "Dribbble",
-                  "HubSpot",
-                  "Motion",
-                  "Netflix",
-                  "Zoom",
+                  { src: "/img/amazon.png", alt: "Amazon" },
+                  { src: "/img/dribble.png", alt: "Dribbble" },
+                  { src: "/img/hubspot.png", alt: "HubSpot" },
+                  { src: "/img/notion.png", alt: "Motion" },
+                  { src: "/img/netflix.png", alt: "Netflix" },
+                  { src: "/img/zoom.png", alt: "Zoom" },
                 ].map((logo, index) => (
                   <img
                     key={index}
-                    src={`/img/1.png=${logo}`}
-                    alt={logo}
+                    src={logo.src}
+                    alt={logo.alt}
                     className="h-8"
                   />
                 ))}
@@ -382,8 +382,6 @@ export default function LandingPage() {
           {/* Working Process Section */}
           <Accordion></Accordion>
 
-         
-
           {/* Team Section */}
           <section className="py-24">
             <div className="space-y-8">
@@ -445,7 +443,7 @@ export default function LandingPage() {
           </section>
 
           {/* Testimonials Section */}
-      
+
           <Testimonials></Testimonials>
 
           {/* Contact Section */}
