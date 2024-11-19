@@ -17,10 +17,12 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import Accordion from '../components/Accordion'
+// import Testimonials from "../components/Testimonials";
 
 export default function LandingPage() {
   const navigation = [
-    { name: "About us", href: "#" },
+    { name: "About us", href: "/" },
     { name: "Services", href: "#" },
     { name: "Use Cases", href: "#" },
     { name: "Pricing", href: "#" },
@@ -62,44 +64,44 @@ export default function LandingPage() {
     },
   ];
 
-  const processes = [
-    {
-      number: "01",
-      title: "Consultation",
-      content:
-        "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.",
-    },
-    {
-      number: "02",
-      title: "Research and Strategy Development",
-      content:
-        "We conduct thorough market research and develop a comprehensive strategy tailored to your business objectives and target audience.",
-    },
-    {
-      number: "03",
-      title: "Implementation",
-      content:
-        "Our team executes the strategy with precision, implementing all planned marketing initiatives and campaigns.",
-    },
-    {
-      number: "04",
-      title: "Monitoring and Optimization",
-      content:
-        "We continuously monitor campaign performance and make data-driven optimizations to improve results.",
-    },
-    {
-      number: "05",
-      title: "Reporting and Communication",
-      content:
-        "Regular reporting and open communication keep you informed about progress and results.",
-    },
-    {
-      number: "06",
-      title: "Continual Improvement",
-      content:
-        "We consistently refine and improve our strategies based on performance data and your feedback.",
-    },
-  ];
+  // const processes = [
+  //   {
+  //     number: "01",
+  //     title: "Consultation",
+  //     content:
+  //       "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.",
+  //   },
+  //   {
+  //     number: "02",
+  //     title: "Research and Strategy Development",
+  //     content:
+  //       "We conduct thorough market research and develop a comprehensive strategy tailored to your business objectives and target audience.",
+  //   },
+  //   {
+  //     number: "03",
+  //     title: "Implementation",
+  //     content:
+  //       "Our team executes the strategy with precision, implementing all planned marketing initiatives and campaigns.",
+  //   },
+  //   {
+  //     number: "04",
+  //     title: "Monitoring and Optimization",
+  //     content:
+  //       "We continuously monitor campaign performance and make data-driven optimizations to improve results.",
+  //   },
+  //   {
+  //     number: "05",
+  //     title: "Reporting and Communication",
+  //     content:
+  //       "Regular reporting and open communication keep you informed about progress and results.",
+  //   },
+  //   {
+  //     number: "06",
+  //     title: "Continual Improvement",
+  //     content:
+  //       "We consistently refine and improve our strategies based on performance data and your feedback.",
+  //   },
+  // ];
 
   const team = [
     {
@@ -271,23 +273,26 @@ export default function LandingPage() {
           </section>
 
           {/* Logos Section */}
-          <section className="py-16">
-            <div className="flex flex-wrap justify-between items-center gap-8">
-              {[
-                "Amazon",
-                "Dribbble",
-                "HubSpot",
-                "Motion",
-                "Netflix",
-                "Zoom",
-              ].map((logo) => (
-                <img
-                  key={logo}
-                  src={`/placeholder.svg?height=30&width=100&text=${logo}`}
-                  alt={logo}
-                  className="h-8"
-                />
-              ))}
+          <section className="py-16 overflow-hidden">
+            <div className="relative w-full">
+              <div className="flex gap-96 animate-marquee w-full">
+                {/* Logos to scroll */}
+                {[
+                  "Amazon",
+                  "Dribbble",
+                  "HubSpot",
+                  "Motion",
+                  "Netflix",
+                  "Zoom",
+                ].map((logo, index) => (
+                  <img
+                    key={index}
+                    src={`/img/1.png=${logo}`}
+                    alt={logo}
+                    className="h-8"
+                  />
+                ))}
+              </div>
             </div>
           </section>
 
@@ -295,7 +300,7 @@ export default function LandingPage() {
           <section className="py-24">
             <div className="space-y-16">
               <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
+                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md ">
                   <h2 className="text-2xl font-bold">Services</h2>
                 </div>
                 <p className="text-lg max-w-2xl">
@@ -305,13 +310,13 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
                 {services.map((service, index) => (
                   <div
                     key={index}
                     className={`${service.bgColor} ${
                       service.textColor || "text-black"
-                    } p-8 rounded-3xl space-y-12`}
+                    } p-8 rounded-3xl space-y-12 border-black-600 border-2`}
                   >
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold">{service.title}</h3>
@@ -325,6 +330,53 @@ export default function LandingPage() {
                     </Link>
                   </div>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* info section */}
+          <section className="relative overflow-hidden bg-gray-50">
+            <div className="container px-4 md:px-6 py-12 md:py-16 lg:py-20">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1 space-y-4 text-center md:text-left">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text3xl md:text-4xl">
+                    Let's make things happen
+                  </h2>
+                  <p className="mx-auto md:mx-0 max-w-[600px] text-gray-500 md:text-xl">
+                    Contact us today to learn more about how our digital
+                    marketing services can help your business grow and succeed
+                    online.
+                  </p>
+                  <div className="flex justify-center md:justify-start">
+                    <button
+                      size="lg"
+                      className="bg-gray-900 text-white hover:bg-gray-800 rounded-md p-3"
+                    >
+                      Get your free proposal
+                    </button>
+                  </div>
+                </div>
+                <div className="relative w-full max-w-[240px] md:w-[280px] aspect-square">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-24 h-24">
+                      {/* Starburst effect */}
+                      <div className="absolute inset-0 animate-spin-slow">
+                        <div className="absolute top-0 left-1/2 h-12 w-1 -translate-x-1/2 bg-gray-900" />
+                        <div className="absolute top-1/2 left-0 h-1 w-12 -translate-y-1/2 bg-gray-900" />
+                        <div className="absolute bottom-0 left-1/2 h-12 w-1 -translate-x-1/2 bg-gray-900" />
+                        <div className="absolute top-1/2 right-0 h-1 w-12 -translate-y-1/2 bg-gray-900" />
+                      </div>
+                      {/* Face circle */}
+                      <div className="absolute inset-4 bg-gray-900 rounded-full">
+                        {/* Eyes */}
+                        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full" />
+                        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-white rounded-full" />
+                      </div>
+                    </div>
+                  </div>
+                  {/* Green diamond shape */}
+                  <div className="absolute bottom-8 right-8 w-12 h-12 rotate-45 bg-[#9eff00]" />
+                </div>
               </div>
             </div>
           </section>
@@ -391,7 +443,9 @@ export default function LandingPage() {
           </section>
 
           {/* Working Process Section */}
-          <section className="py-24">
+          <Accordion></Accordion>
+
+          {/* <section className="py-24">
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
@@ -435,7 +489,7 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           {/* Team Section */}
           <section className="py-24">
@@ -511,17 +565,17 @@ export default function LandingPage() {
               </div>
 
               <div className="relative">
-                <div className="bg-black text-white rounded-3xl p-8 md:p-12">
-                  <div className="space-y-12">
-                    <div className="min-h-[200px]">
-                      <div className="transition-opacity duration-300">
+                <div className="bg-black text-white rounded-3xl p-8 md:p-12 ">
+                  <div className="space-y-12 ">
+                    <div className="min-h-[200px] items-center justify-center flex">
+                      <div className="transition-opacity duration-300 ">
                         <p className="text-lg md:text-xl leading-relaxed">
                           {testimonials[currentSlide].quote}
                         </p>
                       </div>
                     </div>
 
-                    <div className="space-y-8">
+                    <div className="space-y-8 ">
                       <div>
                         <p className="font-bold">
                           {testimonials[currentSlide].author}
@@ -549,7 +603,7 @@ export default function LandingPage() {
                           </button>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 ">
                           {testimonials.map((_, index) => (
                             <button
                               key={index}
@@ -570,15 +624,16 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
+          {/* <Testimonials></Testimonials> */}
 
           {/* Contact Section */}
           <section className="py-24">
             <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
+              <div className="space-y-4 ">
+                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md ">
                   <h2 className="text-2xl font-bold">Contact Us</h2>
                 </div>
-                <p className="text-lg">
+                <p className="text-lg ">
                   Connect with Us: Let's Discuss Your Digital Marketing Needs
                 </p>
               </div>
