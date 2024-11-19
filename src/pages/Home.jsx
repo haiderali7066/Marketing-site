@@ -34,35 +34,42 @@ export default function LandingPage() {
       title: "Search engine optimization",
       icon: Search,
       bgColor: "bg-white",
+      image: "/img/s1.png", // Add your image path here
     },
     {
       title: "Pay-per-click advertising",
       icon: MousePointer2,
       bgColor: "bg-[#C4F934]",
+      image: "/img/s2.png",
     },
     {
       title: "Social Media Marketing",
       icon: Heart,
       bgColor: "bg-black",
       textColor: "text-white",
+      image: "/img/s3.png",
     },
     {
       title: "Email Marketing",
       icon: Mail,
       bgColor: "bg-white",
+      image: "/img/s4.png",
     },
     {
       title: "Content Creation",
       icon: FileText,
       bgColor: "bg-[#C4F934]",
+      image: "/img/s5.png",
     },
     {
       title: "Analytics and Tracking",
       icon: BarChart3,
       bgColor: "bg-black",
       textColor: "text-white",
+      image: "/img/s6.png",
     },
   ];
+
 
   
   const team = [
@@ -236,6 +243,7 @@ export default function LandingPage() {
           {/* Services Section */}
           <section className="py-24">
             <div className="space-y-16">
+              {/* Header Section */}
               <div className="space-y-4">
                 <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md ">
                   <h2 className="text-2xl font-bold">Services</h2>
@@ -247,24 +255,39 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10 p-5">
+              {/* Services Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className={`${service.bgColor} ${
+                    className={`flex flex-col md:flex-row items-center md:items-start gap-6 p-6 ${
+                      service.bgColor
+                    } ${
                       service.textColor || "text-black"
-                    } p-8 rounded-3xl space-y-12 border-black border-2 border-b-8`}
+                    } rounded-3xl border-black border-2 border-b-8`}
                   >
-                    <div className="space-y-4">
+                    {/* Text Section */}
+                    <div className="flex-1 space-y-4">
                       <h3 className="text-2xl font-bold">{service.title}</h3>
                       <service.icon className="w-12 h-12" />
+                      <Link
+                        to="#"
+                        className="inline-flex items-center gap-2 text-lg font-medium hover:opacity-80"
+                      >
+                        Learn more <ArrowRight className="w-5 h-5" />
+                      </Link>
                     </div>
-                    <Link
-                      to="#"
-                      className="inline-flex items-center gap-2 text-lg font-medium hover:opacity-80"
-                    >
-                      Learn more <ArrowRight className="w-5 h-5" />
-                    </Link>
+
+                    {/* Image Section */}
+                    {service.image && (
+                      <div className="flex-shrink-0 w-full md:w-1/3">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          className="w-full h-full  object-cover rounded-lg"
+                        />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -294,25 +317,9 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="relative w-full max-w-[240px] md:w-[280px] aspect-square">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative w-24 h-24">
-                      {/* Starburst effect */}
-                      <div className="absolute inset-0 animate-spin-slow">
-                        <div className="absolute top-0 left-1/2 h-12 w-1 -translate-x-1/2 bg-gray-900" />
-                        <div className="absolute top-1/2 left-0 h-1 w-12 -translate-y-1/2 bg-gray-900" />
-                        <div className="absolute bottom-0 left-1/2 h-12 w-1 -translate-x-1/2 bg-gray-900" />
-                        <div className="absolute top-1/2 right-0 h-1 w-12 -translate-y-1/2 bg-gray-900" />
-                      </div>
-                      {/* Face circle */}
-                      <div className="absolute inset-4 bg-gray-900 rounded-full">
-                        {/* Eyes */}
-                        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-white rounded-full" />
-                        <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-white rounded-full" />
-                      </div>
-                    </div>
+                  <div>
+                    <img src="/img/7.png" alt="404" />
                   </div>
-                  {/* Green diamond shape */}
-                  <div className="absolute bottom-8 right-8 w-12 h-12 rotate-45 bg-[#9eff00]" />
                 </div>
               </div>
             </div>
@@ -557,12 +564,16 @@ export default function LandingPage() {
       <footer className="bg-black text-white">
         <div className="max-w-[1400px] mx-auto px-6 py-12">
           <div className="grid gap-12">
+            {/* Top Section */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+              {/* Logo */}
               <div className="flex items-center gap-2">
                 <div className="h-6 w-6 bg-white" />
                 <span className="text-xl font-bold">Positivus</span>
               </div>
-              <nav className="flex flex-wrap gap-8">
+
+              {/* Navigation */}
+              <nav className="flex flex-col md:flex-row flex-wrap gap-4 text-center md:text-left">
                 <Link to="/about-us" className="hover:text-gray-300">
                   About us
                 </Link>
@@ -581,7 +592,9 @@ export default function LandingPage() {
               </nav>
             </div>
 
+            {/* Middle Section */}
             <div className="grid md:grid-cols-2 gap-12">
+              {/* Contact Section */}
               <div className="space-y-4">
                 <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
                   <span className="text-black font-bold">Contact us:</span>
@@ -594,8 +607,12 @@ export default function LandingPage() {
                 </div>
               </div>
 
+              {/* Newsletter Section */}
               <div className="space-y-4">
-                <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
+                <form
+                  onSubmit={handleNewsletterSubmit}
+                  className="flex flex-col sm:flex-row gap-4"
+                >
                   <input
                     type="email"
                     placeholder="Email"
@@ -612,8 +629,9 @@ export default function LandingPage() {
               </div>
             </div>
 
+            {/* Bottom Section */}
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-800">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-400 text-center md:text-left">
                 © 2023 Positivus. All Rights Reserved.
               </p>
               <div className="flex items-center gap-4">
