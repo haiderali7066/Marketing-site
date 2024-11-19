@@ -18,7 +18,7 @@ import {
   Twitter,
 } from "lucide-react";
 import Accordion from '../components/Accordion'
-// import Testimonials from "../components/Testimonials";
+import Testimonials from "../components/Testimonials";
 
 export default function LandingPage() {
   const navigation = [
@@ -64,45 +64,7 @@ export default function LandingPage() {
     },
   ];
 
-  // const processes = [
-  //   {
-  //     number: "01",
-  //     title: "Consultation",
-  //     content:
-  //       "During the initial consultation, we will discuss your business goals and objectives, target audience, and current marketing efforts. This will allow us to understand your needs and tailor our services to best fit your requirements.",
-  //   },
-  //   {
-  //     number: "02",
-  //     title: "Research and Strategy Development",
-  //     content:
-  //       "We conduct thorough market research and develop a comprehensive strategy tailored to your business objectives and target audience.",
-  //   },
-  //   {
-  //     number: "03",
-  //     title: "Implementation",
-  //     content:
-  //       "Our team executes the strategy with precision, implementing all planned marketing initiatives and campaigns.",
-  //   },
-  //   {
-  //     number: "04",
-  //     title: "Monitoring and Optimization",
-  //     content:
-  //       "We continuously monitor campaign performance and make data-driven optimizations to improve results.",
-  //   },
-  //   {
-  //     number: "05",
-  //     title: "Reporting and Communication",
-  //     content:
-  //       "Regular reporting and open communication keep you informed about progress and results.",
-  //   },
-  //   {
-  //     number: "06",
-  //     title: "Continual Improvement",
-  //     content:
-  //       "We consistently refine and improve our strategies based on performance data and your feedback.",
-  //   },
-  // ];
-
+  
   const team = [
     {
       name: "John Smith",
@@ -148,32 +110,7 @@ export default function LandingPage() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote:
-        "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. I highly recommend Positivus to any company looking to grow their online presence.",
-      author: "John Smith",
-      position: "Marketing Director at XYZ Corp",
-    },
-    {
-      quote:
-        "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business.",
-      author: "Sarah Johnson",
-      position: "CEO at ABC Company",
-    },
-    {
-      quote:
-        "The team at Positivus has been instrumental in helping us achieve our digital marketing goals. Their expertise and dedication are unmatched.",
-      author: "Michael Brown",
-      position: "Director of Digital at 123 Industries",
-    },
-    {
-      quote:
-        "Working with Positivus has transformed our online presence. Their strategic approach and attention to detail have delivered exceptional results.",
-      author: "Emily Wilson",
-      position: "Marketing Manager at Tech Solutions",
-    },
-  ];
+  
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -310,13 +247,13 @@ export default function LandingPage() {
                 </p>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10 p-5">
                 {services.map((service, index) => (
                   <div
                     key={index}
                     className={`${service.bgColor} ${
                       service.textColor || "text-black"
-                    } p-8 rounded-3xl space-y-12 border-black-600 border-2`}
+                    } p-8 rounded-3xl space-y-12 border-black border-2 border-b-8`}
                   >
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold">{service.title}</h3>
@@ -335,14 +272,14 @@ export default function LandingPage() {
           </section>
 
           {/* info section */}
-          <section className="relative overflow-hidden bg-gray-50">
+          <section className="relative overflow-hidden bg-gray-200 rounded-2xl">
             <div className="container px-4 md:px-6 py-12 md:py-16 lg:py-20">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex-1 space-y-4 text-center md:text-left">
                   <h2 className="text-3xl font-bold tracking-tighter sm:text3xl md:text-4xl">
                     Let's make things happen
                   </h2>
-                  <p className="mx-auto md:mx-0 max-w-[600px] text-gray-500 md:text-xl">
+                  <p className="mx-auto md:mx-0 max-w-[600px] text-gray-500  md:text-xl">
                     Contact us today to learn more about how our digital
                     marketing services can help your business grow and succeed
                     online.
@@ -445,51 +382,7 @@ export default function LandingPage() {
           {/* Working Process Section */}
           <Accordion></Accordion>
 
-          {/* <section className="py-24">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
-                  <h2 className="text-2xl font-bold">Our Working Process</h2>
-                </div>
-                <p className="text-lg">
-                  Step-by-Step Guide to Achieving Your Business Goals
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {processes.map((process, index) => (
-                  <div
-                    key={process.number}
-                    className={`rounded-3xl overflow-hidden ${
-                      index === 0 ? "bg-[#C4F934]" : "bg-gray-100"
-                    }`}
-                  >
-                    <button
-                      className="w-full px-8 py-6 flex items-center justify-between"
-                      onClick={() => {
-                        // Toggle accordion item
-                      }}
-                    >
-                      <div className="flex items-center gap-4">
-                        <span className="text-2xl font-bold">
-                          {process.number}
-                        </span>
-                        <span className="text-xl font-bold">
-                          {process.title}
-                        </span>
-                      </div>
-                      <div className="rounded-md border-2 border-black p-2">
-                        <MoveDown className="h-4 w-4" />
-                      </div>
-                    </button>
-                    <div className="px-8 pb-6 pt-0">
-                      <p className="text-lg ml-12">{process.content}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section> */}
+         
 
           {/* Team Section */}
           <section className="py-24">
@@ -552,79 +445,8 @@ export default function LandingPage() {
           </section>
 
           {/* Testimonials Section */}
-          <section className="py-24">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-[#C4F934] rounded-md">
-                  <h2 className="text-2xl font-bold">Testimonials</h2>
-                </div>
-                <p className="text-lg">
-                  Hear from Our Satisfied Clients: Read Our Testimonials to
-                  Learn More about Our Digital Marketing Services
-                </p>
-              </div>
-
-              <div className="relative">
-                <div className="bg-black text-white rounded-3xl p-8 md:p-12 ">
-                  <div className="space-y-12 ">
-                    <div className="min-h-[200px] items-center justify-center flex">
-                      <div className="transition-opacity duration-300 ">
-                        <p className="text-lg md:text-xl leading-relaxed">
-                          {testimonials[currentSlide].quote}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-8 ">
-                      <div>
-                        <p className="font-bold">
-                          {testimonials[currentSlide].author}
-                        </p>
-                        <p className="text-gray-400">
-                          {testimonials[currentSlide].position}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                          <button
-                            onClick={previousSlide}
-                            className="p-2 hover:bg-gray-800 rounded-md transition-colors"
-                            aria-label="Previous testimonial"
-                          >
-                            <ArrowLeft className="w-6 h-6" />
-                          </button>
-                          <button
-                            onClick={nextSlide}
-                            className="p-2 hover:bg-gray-800 rounded-md transition-colors"
-                            aria-label="Next testimonial"
-                          >
-                            <ArrowRight className="w-6 h-6" />
-                          </button>
-                        </div>
-
-                        <div className="flex items-center gap-2 ">
-                          {testimonials.map((_, index) => (
-                            <button
-                              key={index}
-                              onClick={() => goToSlide(index)}
-                              className={`w-2 h-2 rounded-md transition-colors ${
-                                currentSlide === index
-                                  ? "bg-[#C4F934]"
-                                  : "bg-gray-600"
-                              }`}
-                              aria-label={`Go to testimonial ${index + 1}`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          {/* <Testimonials></Testimonials> */}
+      
+          <Testimonials></Testimonials>
 
           {/* Contact Section */}
           <section className="py-24">

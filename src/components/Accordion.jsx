@@ -72,7 +72,7 @@ const WorkingProcess = () => {
                 onClick={() => toggleAccordion(index)} // Toggle accordion item
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-2xl font-bold">{process.number}</span>
+                  <span className="text-4xl font-bold">{process.number}</span>
                   <span className="text-xl font-bold">{process.title}</span>
                 </div>
                 <div className="rounded-full border-2 border-black p-2">
