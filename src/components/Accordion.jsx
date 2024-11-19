@@ -75,7 +75,7 @@ const WorkingProcess = () => {
                   <span className="text-2xl font-bold">{process.number}</span>
                   <span className="text-xl font-bold">{process.title}</span>
                 </div>
-                <div className="rounded-md border-2 border-black p-2">
+                <div className="rounded-full border-2 border-black p-2">
                   <ChevronDown
                     className="h-4 w-4 transition-transform transform duration-300"
                     style={{
